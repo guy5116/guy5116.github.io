@@ -139,6 +139,12 @@ img {
 	cursor: pointer; 
 }
 
+.project-card img {
+	border: 2px solid white;
+	border-radius: 15px;
+	padding: 0px;
+}
+
 .project-card h2 {
 	color:red;
 }
