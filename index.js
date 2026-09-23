@@ -1,0 +1,46 @@
+const projects = {
+    "speed-test": {
+        title: "Speed Test",
+        img: "speedTest.png",
+        desc: "Fifteen languages — x86-64 assembly, C, C++, Rust, Swift, Go, Java, C#, JavaScript, Lua, Perl, PHP, Python, Ruby, COBOL — plus a NumPy row for Python, running the same six algorithms on the same input, timed side by side. Every entry runs at its shipped best: -O3 and -march=native where there is a compiler, the tracing JIT for PHP, YJIT for Ruby — so a slow row is the language's bill, not the code's.",
+        link: "https://github.com/guy5116/Speed-Test"
+    },
+    "basic-c": {
+        title: "Basic C",
+        img: "basicC.png",
+        desc: "A collection of small C programs — Fibonacci, sorting, graphs, structs — written as deliberate practice with the language. Not polished, but each one taught me something about pointers, memory, or why the compiler was yelling at me.",
+        link: "https://github.com/guy5116/basic-C"
+    },
+    "ytdownloader": {
+        title: "Youtube Video Downloader",
+        img: "ytdownloader.png",
+        desc: "Youtube video downloader written in python and powered by Node.js, FFmpeg, and yt_dlp. Can easily download videos in different qualities or just the audio using the gui.",
+        link: "https://github.com/guy5116/Youtube-Video-Downloader"
+    },
+    "imageterm": {
+        title: "Image Term",
+        img: "imageterm.png",
+        desc: "Image display command using api calls to pull images based on user tags, only works with kitty, written in python.",
+        link: "https://github.com/guy5116/basic-C"
+    }
+};
+
+const dialog = document.getElementById("project-dialog");
+
+document.querySelectorAll(".project-card").forEach(card => {
+    card.addEventListener("click", () => {
+        const p = projects[card.dataset.project];
+        dialog.querySelector("img").src = p.img;
+        dialog.querySelector("h2").textContent = p.title;
+        dialog.querySelector("p").textContent = p.desc;
+        dialog.querySelector("a").href = p.link;
+        dialog.showModal();
+    });
+});
+
+dialog.querySelector(".close").addEventListener("click", () => dialog.close());
+
+// close when the dimmed backdrop is clicked
+dialog.addEventListener("click", e => {
+    if (e.target === dialog) dialog.close();
+});

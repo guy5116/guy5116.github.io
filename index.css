@@ -47,6 +47,14 @@ a {
 	margin-bottom: 0px;
 }
 
+h2, h1 {
+	color:white;
+	/*text-align:center;*/
+	font-family:"Times New Roman", Times, serif;
+	padding-bottom:0px;
+	margin-bottom: 0px;
+}
+
 .card {
 	display: flex;
 	flex-direction: column;
@@ -121,8 +129,51 @@ img {
 
 #bottom-text{
 	text-align:center;
+	color: black;
 	background-color: white;
 	opacity: 0.5;
 }
 
+.project-card {
+	cursor: pointer; 
+}
 
+.project-card h2 {
+	color:red;
+}
+
+
+#project-dialog {
+    padding: 0;
+    border: 2px solid red;
+    border-radius: 12px;
+    max-width: 500px;
+}
+#project-dialog::backdrop {
+	background: rgba(0, 0, 0, 0.6); 
+}
+
+.dialog-body { 
+	padding: 2rem; 
+	background-color:black;
+}
+
+.dialog-body img { 
+	max-width: 100%;
+	isplay: block; 
+	border: 1px solid red;
+	margin: 10px;
+}
+
+.dialog-body h2, p {
+	color:white;
+	font-family:"Times New Roman", Times, serif;
+}
+
+.dialog-body button {
+	display: block;
+	margin-left: auto;
+	margin-right: 0;
+	color: white;
+	background-color: red;
+}
