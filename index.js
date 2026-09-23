@@ -21,7 +21,7 @@ const projects = {
         title: "Image Term",
         img: "imageterm.png",
         desc: "Image display command using api calls to pull images based on user tags, only works with kitty, written in python.",
-        link: "https://github.com/guy5116/basic-C"
+        link: "https://github.com/guy5116/imageTerm"
     }
 };
 
