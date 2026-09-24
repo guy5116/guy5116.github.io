@@ -44,3 +44,57 @@ dialog.querySelector(".close").addEventListener("click", () => dialog.close());
 dialog.addEventListener("click", e => {
     if (e.target === dialog) dialog.close();
 });
+
+
+function webhook(){
+	const name = document.getElementById("fname");
+	const email = document.getElementById("femail");
+	const phone = document.getElementById("fphone");
+	const reason = document.getElementById("freason");
+
+	if (name.value === ""){
+		alert("No name given");
+		return;
+	}
+	
+	if (email.value === ""){
+		alert("No email given");
+		return;
+	}
+	
+	if (phone.value === ""){
+		alert("No phone given");
+		return;
+	}
+	
+	if (reason.value === ""){
+		alert("No reason given");
+		return;
+	}
+
+	const message = `${name.value} is contacting you regarding\n:${reason.value}\n\nContact them via\nPhone: ${phone.value}\nEmail: ${email.value}`;
+	alert(message)
+
+	const url = "https://discord.com/api/webhooks/1552710262656598047/v2XEEXjLjcMP8hScYf2s_9McvC9FJDFb8xE-5JXvd9CjbReUHKnMzk5xZjsDnO-dc1Ys";
+
+	const payload = {
+		content: message,
+		username:"CSCI_Project",
+	};
+
+	fetch(url, {
+		method: "POST",
+		headers: {
+			"Content-Type": "application/json",
+		},
+		body: JSON.stringify(payload),
+	})
+	.then(response => {
+	    if (response.ok) {
+	      console.log("Message sent successfully!");
+	    } else {
+	      console.log("Failed to send message.");
+	    }
+	  })
+	  .catch(error => console.error("Error:", error));
+}
