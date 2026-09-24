@@ -72,9 +72,8 @@ function webhook(){
 		return;
 	}
 
-	const message = `${name.value} is contacting you regarding\n:${reason.value}\n\nContact them via\nPhone: ${phone.value}\nEmail: ${email.value}`;
-	alert(message)
-
+	const message = `\n${name.value} is contacting you regarding\n:${reason.value}\n\nContact them via\nPhone: ${phone.value}\nEmail: ${email.value}`;
+	alert("Message Sent :D")
 	const url = "https://discord.com/api/webhooks/1552710262656598047/v2XEEXjLjcMP8hScYf2s_9McvC9FJDFb8xE-5JXvd9CjbReUHKnMzk5xZjsDnO-dc1Ys";
 
 	const payload = {
