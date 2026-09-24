@@ -46,7 +46,19 @@ dialog.addEventListener("click", e => {
 });
 
 
-function webhook(){
+function scan_webhook(){
+	const fs = require('fs');
+	
+	try {
+	  const data = fs.readFileSync('webhook.txt', 'utf8');
+	  	return data;
+	} catch (err) {
+	  console.error(err);
+	  return -1;
+	}
+}
+
+function webhook_check(){
 	const name = document.getElementById("fname");
 	const email = document.getElementById("femail");
 	const phone = document.getElementById("fphone");
@@ -71,10 +83,13 @@ function webhook(){
 		alert("No reason given");
 		return;
 	}
+	webhook_send(name.value, reason.value, email.value, phone.value);
+}
 
-	const message = `\n${name.value} is contacting you regarding\n:${reason.value}\n\nContact them via\nPhone: ${phone.value}\nEmail: ${email.value}`;
-	alert("Message Sent :D")
+function webhook_send(name, reason, email, phone){
+	const message = `\n${name} is contacting you regarding\n:${reason}\n\nContact them via\nPhone: ${phone}\nEmail: ${email}`;
 	const url = "https://discord.com/api/webhooks/1552710262656598047/v2XEEXjLjcMP8hScYf2s_9McvC9FJDFb8xE-5JXvd9CjbReUHKnMzk5xZjsDnO-dc1Ys";
+	if(url === -1){return}
 
 	const payload = {
 		content: message,
@@ -96,4 +111,7 @@ function webhook(){
 	    }
 	  })
 	  .catch(error => console.error("Error:", error));
+
+	alert("Message Sent :D");
+	return;
 }
