@@ -87,7 +87,7 @@ function webhook_check(){
 }
 
 function webhook_send(name, reason, email, phone){
-	const message = `\n${name} is contacting you regarding\n:${reason}\n\nContact them via\nPhone: ${phone}\nEmail: ${email}`;
+	const message = `\n#################################\n${name} is contacting you regarding:\n${reason}\n\nContact them via\nPhone: ${phone}\nEmail: ${email}`;
 	const url = "https://discord.com/api/webhooks/1552710262656598047/v2XEEXjLjcMP8hScYf2s_9McvC9FJDFb8xE-5JXvd9CjbReUHKnMzk5xZjsDnO-dc1Ys";
 	if(url === -1){return}
 
